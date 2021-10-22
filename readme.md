@@ -1,7 +1,14 @@
 
 ### [Needle npm](https://www.npmjs.com/package/needle)
-A very light weight HTTP client for making request from serve to public API. Needle will return a promise so Async-Await is required to handle it
+A very light weight HTTP client for making request from serve to public API. Needle will return a promise so Async-Await is required to handle it.
 
+### [EXPRESS rate limiter](https://www.npmjs.com/package/express-rate-limit)
+Use to limit repeated requests to public APIs and/or endpoints such as password reset. Rate limiting is a very powerful feature for securing backend APIs from malicious attacks and for handling unwanted streams of requests from users. In general terms, it allows us to control the rate at which user requests are processed by our server.
+
+### [apicache](https://www.npmjs.com/package/apicache)
+To store copies of frequently accessed API data in several places along the request-response path. So that, next time, when the client requests the same information, instead of sending a new API request, it will give the information from the local memory.
+
+##### Personal note: deployed to heroku@akitadrilling
 
 # Node API Proxy Server
 
@@ -11,19 +18,19 @@ Server used for hiding API keys, rate limiting and caching. This uses the [OpenW
 
 ### Install dependencies
 
-```bash
+```js
 npm install
 ```
 
 ### Run on http://localhost:5000
 
-```bash
+```js
 npm run dev
 ```
 
 ### Add public API info
 
-Rename **.env.example** to **.env** and edit the values
+Add an **.env** file and set the variables as below:
 
 If the public API URL is **https://api.openweathermap.org/data/2.5/weather?q={city}&appid={APIkey}**
 
