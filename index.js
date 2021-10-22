@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
-// require('dotenv').config();
+
 import * as dotenv from 'dotenv';
 dotenv.config();
 import errorHandler from './middleware/error.js';
@@ -14,8 +14,9 @@ const app = express();
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 Mins
-  max: 100,
+  max: 20,
 });
+
 app.use(limiter);
 app.set('trust proxy', 1);
 
