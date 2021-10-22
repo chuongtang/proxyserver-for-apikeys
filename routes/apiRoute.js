@@ -1,8 +1,10 @@
-import { parse } from 'url';
+import { parse } from 'url';  // this is part of node modules
 import { Router } from 'express';
 const router = Router();
 import needle from 'needle';
-import apicache from 'apicache'
+import apicache from 'apicache';
+import * as dotenv from 'dotenv';
+dotenv.config()
 
 
 // Env vars
@@ -11,7 +13,7 @@ const API_KEY_NAME = process.env.API_KEY_NAME
 const API_KEY_VALUE = process.env.API_KEY_VALUE
 
 // Init cache
-let cache = apicache.middleware
+let cache = apicache.middleware;
 
 router.get('/', cache('2 minutes'), async (req, res, next) => {
   try {
