@@ -21,7 +21,7 @@ const fetchWeather = async (city) => {
 
   const displayData = {
     city: data.name,
-    temp: kelvinToFahrenheit(data.main.temp),
+    temp: kelvinToCelsius(data.main.temp),
   }
 
   addWeatherToDOM(displayData)
@@ -31,9 +31,14 @@ const fetchWeather = async (city) => {
 const addWeatherToDOM = (data) => {
   weatherDisplay.innerHTML = `
     <h1>Weather in ${data.city}</h1>
-    <h2>${data.temp} &deg;F</h2>
+    <h2>${data.temp} &deg;Celsius</h2>
   `
   cityInput.value = ''
+}
+
+// Convert Kelvin to Celsius
+const kelvinToCelsius = (temp) => {
+  return Math.ceil(temp - 273.15) ;
 }
 
 // Convert Kelvin to Fahrenheit
@@ -53,4 +58,4 @@ weatherForm.addEventListener('submit', (e) => {
 })
 
 // Initial fetch
-fetchWeather('Miami')
+fetchWeather('Calgary')
